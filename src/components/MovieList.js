@@ -1,12 +1,19 @@
 import React from 'react'
 import MovieCard from './MovieCard'
+import AddMovie from './AddMovie'
 
-const MovieList=(props)=>{
+const MovieList = (props) => {
 
-    const {film}=props
+    const { film } = props
+    const {addMovie}=props
 
-    return(
-        <MovieCard author={film} movie={props.movie} />
+    return (
+
+        <div>
+            <MovieCard author={film} movie={props.movie} />
+            <AddMovie addMovie={addMovie} />
+        </div>
+
     )
 }
 

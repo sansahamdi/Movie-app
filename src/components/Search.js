@@ -19,13 +19,14 @@ const Search = (props) => {
     return (
 
         <div className='headerSearch'>
-            <StarRating count={5}
+            <StarRating className='mb-2'
+                count={5}
                 size={40}
                 value={rating}
                 activeColor={'yellow'}
                 inactiveColor={'#ddd'}
                 onChange={searchRating} />
-            <nav className="navbar navbar-expand-lg navbar-dark indigo mb-4">
+            <nav className="navbar navbar-expand-lg navbar-dark indigo mb-4 mt-4">
                 <a className="navbar-brand" href="/">Navbar</a>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <form className="form-inline ml-auto">
@@ -34,12 +35,13 @@ const Search = (props) => {
                         </div>
                         <button onClick={(e) => { 
                             e.preventDefault();
-                            // handleChange(rating)
+                            handleChange(rating)
                             searchMovie(search)
                             }} href="/" className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">Search</button>
                     </form>
                 </div>
             </nav>
+            
         </div>
     )
 }

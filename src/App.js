@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import DataCard from './components/DataCard'
 import MovieList from './components/MovieList';
-import './App.css';
 import Search from './components/Search';
-import AddMovie from './components/AddMovie';
+import Trailer from './components/Trailer'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './App.css';
 
 
 
@@ -28,15 +29,29 @@ const App = () => {
   }
 
   const searchRating = (rating) => {
-    const test = film.filter((x) => x.rate>=rating)
+    const test = film.filter((x) => x.rate >= rating)
     return setArray(test)
   }
 
   return (
     <React.Fragment>
       <Search searchMovie={searchMovie} searchRating={searchRating} />
-      <MovieList film={film} movie={array} />
-      <AddMovie addMovie={addMovie} />
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <div>
+              <MovieList film={film} movie={array} addMovie={addMovie} />
+            </div>
+          </Route>
+          <Route exact path='/Trailer/:id' render={(props)=>
+          
+            <Trailer arr={film} {...props} />
+          }>
+          </Route>
+        </Switch>
+      
+      </Router>
+
     </React.Fragment>
   )
 }
